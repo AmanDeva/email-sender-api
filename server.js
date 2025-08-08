@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 
 dotenv.config();
 const app = express();
+
+// ✅ Allow all origins & headers for testing
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -52,7 +54,7 @@ app.post('/send-email', async (req, res) => {
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: recipients, // can be array or comma-separated string
+            to: recipients,
             subject: subject,
             text: content
         };
